@@ -9,6 +9,7 @@ RED.nodes.registerType('Sonoff device', {
         name: { value: ''},
         onValue: { value: 'ON' },
         offValue: { value: 'OFF' },
+        toggleValue: { value: 'toggle' },
         cmdPrefix: { value: 'cmnd' },
         statPrefix: { value: 'stat' },
         telePrefix: { value: 'tele' }
@@ -53,6 +54,11 @@ RED.nodes.registerType('Sonoff device', {
     <div class="form-row">
         <label for="node-input-offValue"><i class="fa fa-toggle-off"></i> Off</label>
         <input type="text" id="node-input-offValue" placeholder="offValue (Default: OFF)">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-toggleValue"><i class="fa fa-toggle-on"></i> Toggle</label>
+        <input type="text" id="node-input-toggleValue" placeholder="toggleValue (Default: toggle)">
     </div>
 
     <div class="form-row">

@@ -88,9 +88,15 @@ module.exports = function (RED) {
                     this.send({payload: true});
                 }
 
-                if (payload === false || payload === config.offValue) {
+                else if (payload === false || payload === config.offValue) {
                     brokerConnection.client.publish(topicCmdPower, config.offValue, {qos: 0, retain: false});
                     this.send({payload: false});
+                }
+
+                else if (payload === config.toggleValue) {
+                    this.status({fill: 'green',shape: 'dot',text: 'Toggle sent'});
+                    brokerConnection.client.publish(topicCmdPower, config.toggleValue, {qos: 0,retain: false});
+                    this.send({ payload: true });
                 }
             });
 
